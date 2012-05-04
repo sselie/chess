@@ -16,36 +16,23 @@ public class TestPieza {
     }
     
 	@Test
-	public void testConstructorPieza() {
-		
-
+	public void noPuedeCrearUnaPiezzaAlExteriorDelTablero() {
 		try {
 			new Pieza(-1, -1);
 			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
+		} catch (IllegalArgumentException e) {}
 		try {
 			new Pieza(+8, -1);
 			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
+		} catch (IllegalArgumentException e) {}
 		try {
 			new Pieza(+8, +8);
 			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
+		} catch (IllegalArgumentException e) {}
 		try {
 			new Pieza(-1, +8);
 			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
+		} catch (IllegalArgumentException e) {}
 	}
 
 	@Test
