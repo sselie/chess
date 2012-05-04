@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static piezas.Pieza.esPosicionValida;
 
 public class TestPieza {
 
@@ -15,8 +16,8 @@ public class TestPieza {
         new Pieza(0, 7);
     }
     
-	@Test
-	public void noPuedeCrearUnaPiezzaAlExteriorDelTablero() {
+	@Test public void
+    noPuedeCrearUnaPiezzaAlExteriorDelTablero() {
 		try {
 			new Pieza(-1, -1);
 			assertTrue(false);
@@ -35,16 +36,16 @@ public class TestPieza {
 		} catch (IllegalArgumentException e) {}
 	}
 
-	@Test
-	public void testPosicionValida() {
-		assertTrue(Pieza.posicionValida(0, 0));
-		assertTrue(Pieza.posicionValida(7, 0));
-		assertTrue(Pieza.posicionValida(7, 7));
-		assertTrue(Pieza.posicionValida(0, 7));
+	@Test public void
+    sePuedeVerificarSiUnaPositionEsValidaSinCrearUnaPiezza() {
+		assertTrue( esPosicionValida( 0, 0 ));
+		assertTrue( esPosicionValida( 7, 0 ) );
+        assertTrue( esPosicionValida( 7, 7 ));
+		assertTrue( esPosicionValida( 0, 7 ));
 
-		assertFalse(Pieza.posicionValida(-1, -1));
-		assertFalse(Pieza.posicionValida(+8, -1));
-		assertFalse(Pieza.posicionValida(+8, +8));
-		assertFalse(Pieza.posicionValida(-1, +8));
+		assertFalse( esPosicionValida( -1, -1 ) );
+		assertFalse( esPosicionValida( +8, -1 ));
+		assertFalse( esPosicionValida( +8, +8 ) );
+		assertFalse( esPosicionValida( -1, +8 ));
 	}
 }

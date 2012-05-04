@@ -14,7 +14,7 @@ public class Dama extends Pieza {
 		List<Point> ret = new ArrayList<Point>();
 
 		for (int i = x + dx, j = y + dy; //
-		/**/posicionValida(i, j); i += dx, j += dy) {
+		/**/esPosicionValida( i, j ); i += dx, j += dy) {
 			ret.add(new Point(i, j));
 		}
 

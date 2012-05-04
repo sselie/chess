@@ -19,7 +19,7 @@ public class Rey extends Pieza {
 				int posY = y + j;
 
 				if (i != 0 || j != 0) {
-					if (posicionValida(posX, posY)) {
+					if (esPosicionValida( posX, posY )) {
 						ret.add(new Point(posX, posY));
 					}
 				}
