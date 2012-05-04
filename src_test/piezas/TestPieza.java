@@ -1,54 +1,27 @@
 package piezas;
 
-import static org.junit.Assert.*;
-
-import java.awt.Point;
-import java.util.List;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TestPieza {
 
-	@Test
-	public void testConstructorPieza() {
-		try {
-			new Pieza(0, 0);
-			new Pieza(7, 0);
-			new Pieza(7, 7);
-			new Pieza(0, 7);
-		} catch (IllegalArgumentException e) {
-			assertTrue(false);
-		}
-
-		try {
-			new Pieza(-1, -1);
-			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
-		try {
-			new Pieza(+8, -1);
-			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
-		try {
-			new Pieza(+8, +8);
-			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-
-		try {
-			new Pieza(-1, +8);
-			assertTrue(false);
-		} catch (IllegalArgumentException e) {
-			// Nada
-		}
-	}
-
+    @Test public void
+    sePuedeCrearUnaPiezzaDentroDelTablero() {
+        new Pieza(0, 0);
+        new Pieza(7, 0);
+        new Pieza(7, 7);
+        new Pieza(0, 7);
+    }
+    @Test(expected = IllegalArgumentException.class) public void
+    noSePuedeCrearUnaPiezzaAfueraDelTablero() {
+        new Pieza(-1, -1);
+        new Pieza(+8, -1);
+        new Pieza(+8, +8);
+        new Pieza(-1, +8);
+    }
+    
 	@Test
 	public void testPosicionValida() {
 		assertTrue(Pieza.posicionValida(0, 0));
