@@ -1,24 +1,23 @@
 package piezas;
 
-import static org.junit.Assert.*;
-
-import java.awt.Point;
-import java.util.List;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TestPieza {
 
+    @Test public void
+    sePuedeCrearUnaPiezzaDentroDelTablero() {
+        new Pieza(0, 0);
+        new Pieza(7, 0);
+        new Pieza(7, 7);
+        new Pieza(0, 7);
+    }
+    
 	@Test
 	public void testConstructorPieza() {
-		try {
-			new Pieza(0, 0);
-			new Pieza(7, 0);
-			new Pieza(7, 7);
-			new Pieza(0, 7);
-		} catch (IllegalArgumentException e) {
-			assertTrue(false);
-		}
+		
 
 		try {
 			new Pieza(-1, -1);
