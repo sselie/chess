@@ -2,13 +2,12 @@ package gui;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import support.GameDriver;
 
+import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static gui.GameFrame.TITLE;
-import static builders.PawnBuilder.aPawn;
 
 public class MoveTest {
 
@@ -52,7 +51,6 @@ public class MoveTest {
         driver.hasQueenOn( "d5" );
     }
 
-    @Ignore
     @Test public void
     canMoveAQueen() {
         frame.display( aQueen().black().on("d5").build() );
