@@ -7,7 +7,7 @@ import support.GameDriver;
 
 import static gui.GameFrame.TITLE;
 
-public class GameFrameTest {
+public class MoveTest {
 
     GameFrame frame;
     GameDriver driver;
@@ -28,5 +28,6 @@ public class GameFrameTest {
         driver.hasTitle( TITLE );
     }
     
+
 
 }
