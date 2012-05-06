@@ -38,4 +38,8 @@ public class GameDriver extends JFrameDriver {
     public void hasNothingOn(String cell) {
         button( cell ).hasText( equalTo( "" ) );
     }
+
+    public void hasQueenOn(String cell) {
+        button( cell ).hasText( equalTo( "Q" ) );
+    }
 }

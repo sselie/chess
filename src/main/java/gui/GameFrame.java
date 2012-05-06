@@ -1,6 +1,7 @@
 package gui;
 
 import chess.Pawn;
+import chess.Queen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,4 +87,6 @@ public class GameFrame extends JFrame {
         this.display( pawn );
     }
 
+    public void display(Queen queen) {
+    }
 }

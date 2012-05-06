@@ -16,6 +16,11 @@ public class PawnBuilder {
         return this;
     }
 
+    public PawnBuilder black() {
+        this.white = false;
+        return this;
+    }
+
     public PawnBuilder on(String cell) {
         this.cell = cell;
         return this;
@@ -28,8 +33,4 @@ public class PawnBuilder {
         return pawn;
     }
 
-    public PawnBuilder black() {
-        this.white = false;
-        return this;
-    }
 }
