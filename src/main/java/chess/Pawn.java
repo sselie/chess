@@ -2,16 +2,15 @@ package chess;
 
 public class Pawn {
 
-    private String cell;
+    private String position;
     private boolean white;
 
-    public void setPosition(String cell) {
-
-        this.cell = cell;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getPosition() {
-        return cell;
+        return position;
     }
 
     public void setWhite(boolean white) {

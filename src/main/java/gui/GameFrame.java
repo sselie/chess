@@ -87,6 +87,10 @@ public class GameFrame extends JFrame {
         this.display( pawn );
     }
 
+    private Queen queen;
     public void display(Queen queen) {
+        getButtonNamed( queen.getPosition() ).setText( new QueenRenderer(queen).toString() );
+        getButtonNamed( queen.getPosition() ).setForeground( new QueenRenderer(queen).getColor() );
+        this.queen = queen;
     }
 }
