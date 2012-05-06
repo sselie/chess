@@ -13,7 +13,4 @@ public class Pawn {
         return cell;
     }
 
-    public String toString() {
-        return "P";
-    }
 }
