@@ -56,7 +56,7 @@ public class GameFrame extends JFrame {
         } );
     }
 
-    public JButton getCell(String name) {
+    public JButton getButtonNamed(String name) {
         Component[] all = this.getContentPane().getComponents();
         for( Component component : all) {
             if (component.getName().equalsIgnoreCase(name)) {
@@ -66,24 +66,23 @@ public class GameFrame extends JFrame {
         return null;
     }
 
-
-    private Pawn pawn;
-    public void display(Pawn pawn) {
-        getCell( pawn.getCell() ).setText( "P" );
-        this.pawn = pawn;
-    }
-
-    protected void clicked(JButton source) {
-        this.pawn.setCell( source.getName() );
-        this.clearBoard();
-        this.display( pawn );
-    }
-
     private void clearBoard() {
         Component[] all = this.getContentPane().getComponents();
         for( Component component : all) {
             ((JButton) component).setText( "" );
         }
+    }
+
+    private Pawn pawn;
+    public void display(Pawn pawn) {
+        getButtonNamed( pawn.getPosition() ).setText( pawn.toString() );
+        this.pawn = pawn;
+    }
+
+    protected void clicked(JButton source) {
+        this.pawn.setPosition( source.getName() );
+        this.clearBoard();
+        this.display( pawn );
     }
 
 }

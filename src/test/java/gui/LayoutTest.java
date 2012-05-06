@@ -45,7 +45,7 @@ public class LayoutTest {
     }
 
     private Color colorOf(String name) {
-        return frame.getCell(name).getBackground();
+        return frame.getButtonNamed( name ).getBackground();
     }
 
 }

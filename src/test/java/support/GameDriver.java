@@ -1,5 +1,6 @@
 package support;
 
+import chess.Pawn;
 import com.objogate.wl.swing.AWTEventQueueProber;
 import com.objogate.wl.swing.driver.ComponentDriver;
 import com.objogate.wl.swing.driver.JButtonDriver;
@@ -27,7 +28,7 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasPawnOn(String cell) {
-        button( cell ).hasText( equalTo( "P" ) );
+        button( cell ).hasText( equalTo( new Pawn().toString() ));
     }
 
     public JButtonDriver cell(String name) {

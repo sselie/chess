@@ -21,7 +21,7 @@ public class PawnBuilder {
 
     public Pawn build() {
         Pawn pawn = new Pawn();
-        pawn.setCell( cell );
+        pawn.setPosition( cell );
         return pawn;
     }
 }
