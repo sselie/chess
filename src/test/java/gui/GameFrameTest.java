@@ -1,5 +1,7 @@
 package gui;
 
+import chess.Pawn;
+import chess.Queen;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static builders.PawnBuilder.aPawn;
+import static builders.QueenBuilder.aQueen;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
@@ -53,6 +56,15 @@ public class GameFrameTest {
     aWhitePawnMustReallyBeWhite() {
         frame.display( aPawn().white().on( "a1" ).build() );
         assertThat( frame.getButtonNamed( "a1" ).getForeground(), is( Color.white ) );
+    }
+    
+    @Test public void
+    recordPiecesPosition() {
+        Queen queen = aQueen().white().on( "d1" ).build();
+        Pawn pawn = aPawn().white().on( "d2" ).build();
+        frame.display( queen, pawn );
+        assertThat( (Queen) frame.getPieceByPosition( "d1" ), equalTo( queen ) );
+        assertThat( (Pawn) frame.getPieceByPosition( "d2" ), equalTo( pawn ) );
     }
     
 }

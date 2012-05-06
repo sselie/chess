@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameFrame extends JFrame {
 
@@ -28,6 +30,9 @@ public class GameFrame extends JFrame {
         this.createLine( 3 );
         this.createLine( 2 );
         this.createLine( 1 );
+
+        clearBoard();
+        selection = null;
     }
 
     private void createLine(int line) {
@@ -73,20 +78,46 @@ public class GameFrame extends JFrame {
         for( Component component : all) {
             ((JButton) component).setText( "" );
         }
+        pieces = new ArrayList<Piece>();
     }
 
+    private Piece selection;
     protected void clicked(JButton source) {
-        this.piece.setPosition( source.getName() );
-        this.clearBoard();
-        this.display( piece );
+        if (selection == null) {
+            selection = getPieceByPosition( source.getName() );
+        }
+        else {
+            take( selection );
+            selection.setPosition( source.getName() );
+            display( selection );
+            selection = null;
+        }
     }
 
-    private Piece piece;
+    private void take(Piece piece) {
+        getButtonNamed( piece.getPosition() ).setText( "" );
+    }
+
+    private List<Piece> pieces;
     public void display(Piece piece) {
         Renderer renderer = getRenderer(piece);
         getButtonNamed( piece.getPosition() ).setText( renderer.toString() );
         getButtonNamed( piece.getPosition() ).setForeground( renderer.getColor() );
-        this.piece = piece;
+        this.pieces.add( piece );
+    }
+    public void display(Piece... pieces) {
+        for(Piece piece:pieces) {
+            display( piece );
+        }
+    }
+
+    protected Piece getPieceByPosition(String position) {
+        for(Piece piece:pieces) {
+            if (piece.getPosition().equalsIgnoreCase(position)) {
+                return piece;
+            }
+        }
+        return null;
     }
 
     private Renderer getRenderer(Piece piece) {
