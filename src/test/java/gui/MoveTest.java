@@ -34,6 +34,14 @@ public class MoveTest {
         frame.display( aPawn().white().on("e2").build() );
         driver.hasPawnOn("e2");
     }
+    
+    @Test public void
+    canMoveAPawn() {
+        frame.display( aPawn().white().on("e2").build() );
+        driver.cell( "e2" ).click();
+        driver.cell( "e4" ).click();
+        driver.hasPawnOn("e4");
+    }
 
 
 
