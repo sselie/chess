@@ -1,5 +1,7 @@
 package gui;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import support.GameDriver;
 
@@ -7,12 +9,24 @@ import static gui.GameFrame.TITLE;
 
 public class GameFrameTest {
 
+    GameFrame frame;
+    GameDriver driver;
+
+    @Before public void
+    showGame() {
+        frame = new GameFrame();
+        frame.setVisible( true );
+        driver = new GameDriver();
+    }
+    @After public void
+    hideFrame() {
+        frame.setVisible( false );
+    }
+
     @Test public void
     frameTitle() {
-        GameFrame game = new GameFrame();
-        game.setVisible( true );
-        GameDriver driver = new GameDriver();
         driver.hasTitle( TITLE );
     }
+    
 
 }

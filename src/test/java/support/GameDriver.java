@@ -18,10 +18,10 @@ public class GameDriver extends JFrameDriver {
         super(new GesturePerformer(), new AWTEventQueueProber(), named( TITLE ), showingOnScreen());
         ((AWTEventQueueProber) prober()).setTimeout( 100 );
     }
-    protected JLabelDriver label(String name) {
+    public JLabelDriver label(String name) {
         return new JLabelDriver(this, ComponentDriver.named( name ));
     }
-    protected JButtonDriver button(String name) {
+    public JButtonDriver button(String name) {
         return new JButtonDriver(this, JButton.class, ComponentDriver.named( name ));
     }
 
