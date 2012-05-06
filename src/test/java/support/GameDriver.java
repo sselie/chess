@@ -10,6 +10,7 @@ import com.objogate.wl.swing.gesture.GesturePerformer;
 import javax.swing.*;
 
 import static gui.GameFrame.TITLE;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class GameDriver extends JFrameDriver {
 
@@ -25,4 +26,7 @@ public class GameDriver extends JFrameDriver {
         return new JButtonDriver(this, JButton.class, ComponentDriver.named( name ));
     }
 
+    public void hasPawnOn(String cell) {
+        button( cell ).hasText( equalTo("P" ) );
+    }
 }

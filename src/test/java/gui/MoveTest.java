@@ -6,6 +6,7 @@ import org.junit.Test;
 import support.GameDriver;
 
 import static gui.GameFrame.TITLE;
+import static support.PawnBuilder.aPawn;
 
 public class MoveTest {
 
@@ -28,5 +29,12 @@ public class MoveTest {
         driver.hasTitle( TITLE );
     }
     
+    @Test public void
+    canDisplayAPawn() throws InterruptedException {
+        frame.display( aPawn().white().on("e2").build() );
+        driver.hasPawnOn("e2");
+    }
+
+
 
 }

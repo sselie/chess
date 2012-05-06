@@ -1,5 +1,7 @@
 package gui;
 
+import chess.Pawn;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,5 +45,19 @@ public class GameFrame extends JFrame {
         button.setBackground( color );
         button.setBorderPainted( false );
         this.getContentPane().add( button );
+    }
+
+    public void display(Pawn pawn) {
+        cell( pawn.getCell() ).setText( "P" );
+    }
+
+    private JButton cell(String name) {
+        Component[] all = this.getContentPane().getComponents();
+        for( Component component : all) {
+            if (component.getName().equalsIgnoreCase(name)) {
+                return (JButton) component;
+            }
+        }
+        return null;
     }
 }
