@@ -28,7 +28,7 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasPawnOn(String cell) {
-        button( cell ).hasText( equalTo( new PawnRenderer().toString() ));
+        button( cell ).hasText( equalTo( new PawnRenderer(null).toString() ));
     }
 
     public JButtonDriver cell(String name) {

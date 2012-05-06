@@ -75,7 +75,8 @@ public class GameFrame extends JFrame {
 
     private Pawn pawn;
     public void display(Pawn pawn) {
-        getButtonNamed( pawn.getPosition() ).setText( new PawnRenderer().toString() );
+        getButtonNamed( pawn.getPosition() ).setText( new PawnRenderer(pawn).toString() );
+        getButtonNamed( pawn.getPosition() ).setForeground( new PawnRenderer(pawn).getColor() );
         this.pawn = pawn;
     }
 
