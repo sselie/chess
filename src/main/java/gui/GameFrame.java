@@ -24,14 +24,16 @@ public class GameFrame extends JFrame {
         this.createLine( 1 );
     }
 
-    private void createLine(int number) {
-        Color color = number % 2 == 0 ? Color.darkGray : Color.lightGray;
-        for (char letter = 0; letter < 8; letter++) {
-            this.create(
-                    new Character( (char) (97 + letter) ).toString() + number,
-                    color );
+    private void createLine(int line) {
+        Color color = line % 2 == 0 ? Color.lightGray : Color.darkGray;
+        for (char column = 0; column < 8; column++) {
+            this.create( letterOf( column ) + line, color );
             color = color == Color.darkGray ? Color.lightGray : Color.darkGray;
         }
+    }
+
+    private String letterOf(char column) {
+        return new Character( (char) (97 + column) ).toString();
     }
 
     private void create(String name, Color color) {
