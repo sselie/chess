@@ -1,8 +1,6 @@
 package gui;
 
-import chess.Pawn;
 import chess.Piece;
-import chess.Queen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -100,7 +98,7 @@ public class GameFrame extends JFrame {
 
     private List<Piece> pieces;
     public void display(Piece piece) {
-        Renderer renderer = getRenderer(piece);
+        Renderer renderer = new RendererFactory().rendererOf( piece );
         getButtonNamed( piece.getPosition() ).setText( renderer.toString() );
         getButtonNamed( piece.getPosition() ).setForeground( renderer.getColor() );
         this.pieces.add( piece );
@@ -120,13 +118,4 @@ public class GameFrame extends JFrame {
         return null;
     }
 
-    private Renderer getRenderer(Piece piece) {
-        if (piece instanceof Queen) {
-            return new QueenRenderer((Queen) piece);
-        }
-        if (piece instanceof Pawn) {
-            return new PawnRenderer((Pawn)piece);
-        }
-        return null;
-    }
 }
