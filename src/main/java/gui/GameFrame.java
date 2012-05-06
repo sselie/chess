@@ -4,6 +4,8 @@ import chess.Pawn;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GameFrame extends JFrame {
 
@@ -45,10 +47,13 @@ public class GameFrame extends JFrame {
         button.setBackground( color );
         button.setBorderPainted( false );
         this.getContentPane().add( button );
-    }
-
-    public void display(Pawn pawn) {
-        getCell( pawn.getCell() ).setText( "P" );
+        
+        button.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                GameFrame.this.clicked( (JButton) actionEvent.getSource() );
+            }
+        } );
     }
 
     public JButton getCell(String name) {
@@ -60,4 +65,25 @@ public class GameFrame extends JFrame {
         }
         return null;
     }
+
+
+    private Pawn pawn;
+    public void display(Pawn pawn) {
+        getCell( pawn.getCell() ).setText( "P" );
+        this.pawn = pawn;
+    }
+
+    protected void clicked(JButton source) {
+        this.pawn.setCell( source.getName() );
+        this.clearBoard();
+        this.display( pawn );
+    }
+
+    private void clearBoard() {
+        Component[] all = this.getContentPane().getComponents();
+        for( Component component : all) {
+            ((JButton) component).setText( "" );
+        }
+    }
+
 }

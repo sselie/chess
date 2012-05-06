@@ -41,6 +41,7 @@ public class MoveTest {
         driver.cell( "e2" ).click();
         driver.cell( "e4" ).click();
         driver.hasPawnOn("e4");
+        driver.hasNothingOn( "e2" );
     }
 
 

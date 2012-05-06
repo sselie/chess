@@ -27,10 +27,14 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasPawnOn(String cell) {
-        button( cell ).hasText( equalTo("P" ) );
+        button( cell ).hasText( equalTo( "P" ) );
     }
 
     public JButtonDriver cell(String name) {
         return button( name );
+    }
+
+    public void hasNothingOn(String cell) {
+        button( cell ).hasText( equalTo( "" ) );
     }
 }

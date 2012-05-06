@@ -3,6 +3,7 @@ package gui;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.awt.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -33,6 +34,13 @@ public class GameFrameTest {
         }
     }
 
+    @Test public void
+    allCellsMustHaveAnEmptyContent() {
+        Component[] all = frame.getContentPane().getComponents();
+        for( Component component : all) {
+            assertThat( ((JButton) component).getText(), equalTo( "" ));
+        }
+    }
 
     @Test public void
     createTheALetterFromIntValue65() {
