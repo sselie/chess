@@ -7,6 +7,7 @@ import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
 import gui.PawnRenderer;
+import gui.QueenRenderer;
 
 import javax.swing.*;
 
@@ -27,10 +28,6 @@ public class GameDriver extends JFrameDriver {
         return new JButtonDriver(this, JButton.class, ComponentDriver.named( name ));
     }
 
-    public void hasPawnOn(String cell) {
-        button( cell ).hasText( equalTo( new PawnRenderer(null).toString() ));
-    }
-
     public JButtonDriver cell(String name) {
         return button( name );
     }
@@ -40,6 +37,10 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasQueenOn(String cell) {
-        button( cell ).hasText( equalTo( "Q" ) );
+        button( cell ).hasText( equalTo( new QueenRenderer(null).toString() ) );
     }
+    public void hasPawnOn(String cell) {
+        button( cell ).hasText( equalTo( new PawnRenderer(null).toString() ));
+    }
+
 }
