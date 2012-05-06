@@ -1,4 +1,4 @@
-package chess;
+package gui;
 
 import gui.QueenRenderer;
 import org.hamcrest.core.Is;

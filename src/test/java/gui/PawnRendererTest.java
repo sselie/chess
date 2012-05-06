@@ -1,4 +1,4 @@
-package chess;
+package gui;
 
 import gui.PawnRenderer;
 import org.hamcrest.core.Is;
