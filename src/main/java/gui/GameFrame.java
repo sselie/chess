@@ -48,10 +48,10 @@ public class GameFrame extends JFrame {
     }
 
     public void display(Pawn pawn) {
-        cell( pawn.getCell() ).setText( "P" );
+        getCell( pawn.getCell() ).setText( "P" );
     }
 
-    private JButton cell(String name) {
+    public JButton getCell(String name) {
         Component[] all = this.getContentPane().getComponents();
         for( Component component : all) {
             if (component.getName().equalsIgnoreCase(name)) {

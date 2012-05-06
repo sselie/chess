@@ -45,15 +45,7 @@ public class LayoutTest {
     }
 
     private Color colorOf(String name) {
-        Component found = null;
-        Component[] all = frame.getContentPane().getComponents();
-        for( Component component : all) {
-            if (component.getName().equalsIgnoreCase(name)) {
-                found = component;
-                break;
-            }
-        }
-        return found.getBackground();
+        return frame.getCell(name).getBackground();
     }
 
 }
