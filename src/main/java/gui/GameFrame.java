@@ -1,6 +1,7 @@
 package gui;
 
 import chess.Pawn;
+import chess.Piece;
 import chess.Queen;
 
 import javax.swing.*;
@@ -74,23 +75,27 @@ public class GameFrame extends JFrame {
         }
     }
 
-    private Pawn pawn;
-    public void display(Pawn pawn) {
-        getButtonNamed( pawn.getPosition() ).setText( new PawnRenderer(pawn).toString() );
-        getButtonNamed( pawn.getPosition() ).setForeground( new PawnRenderer(pawn).getColor() );
-        this.pawn = pawn;
-    }
-
     protected void clicked(JButton source) {
-        this.pawn.setPosition( source.getName() );
+        this.piece.setPosition( source.getName() );
         this.clearBoard();
-        this.display( pawn );
+        this.display( piece );
     }
 
-    private Queen queen;
-    public void display(Queen queen) {
-        getButtonNamed( queen.getPosition() ).setText( new QueenRenderer(queen).toString() );
-        getButtonNamed( queen.getPosition() ).setForeground( new QueenRenderer(queen).getColor() );
-        this.queen = queen;
+    private Piece piece;
+    public void display(Piece piece) {
+        Renderer renderer = getRenderer(piece);
+        getButtonNamed( piece.getPosition() ).setText( renderer.toString() );
+        getButtonNamed( piece.getPosition() ).setForeground( renderer.getColor() );
+        this.piece = piece;
+    }
+
+    private Renderer getRenderer(Piece piece) {
+        if (piece instanceof Queen) {
+            return new QueenRenderer((Queen) piece);
+        }
+        if (piece instanceof Pawn) {
+            return new PawnRenderer((Pawn)piece);
+        }
+        return null;
     }
 }

@@ -7,7 +7,7 @@ import java.awt.*;
 import static java.awt.Color.black;
 import static java.awt.Color.white;
 
-public class PawnRenderer {
+public class PawnRenderer implements Renderer {
 
     private Pawn pawn;
 

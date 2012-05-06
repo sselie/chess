@@ -7,7 +7,7 @@ import java.awt.*;
 import static java.awt.Color.black;
 import static java.awt.Color.white;
 
-public class QueenRenderer {
+public class QueenRenderer implements Renderer {
 
     private Queen queen;
 
