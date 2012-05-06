@@ -72,8 +72,6 @@ public class MoveTest {
         driver.cell( "d3" ).click();
         driver.hasPawnOn( "d3" );
 
-        Thread.sleep( 4000 );
-        
     }
 
 
