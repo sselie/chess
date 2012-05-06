@@ -1,6 +1,4 @@
-package tablero;
-
-import piezas.Pieza;
+package chess;
 
 public class Tablero {
 

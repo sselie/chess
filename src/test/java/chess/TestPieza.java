@@ -1,10 +1,10 @@
-package piezas;
+package chess;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static piezas.Pieza.esPosicionValida;
+import static chess.Pieza.esPosicionValida;
 
 public class TestPieza {
 

@@ -1,4 +1,4 @@
-package piezas;
+package chess;
 
 public class Pieza {
 
