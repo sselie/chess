@@ -12,7 +12,7 @@ import static builders.RockBuilder.aRoock;
 public class InitialPositions {
 
     public static Piece[] initialPositions() {
-        return new Piece[] {
+        return new Piece[]{
                 aPawn().white().on( "a2" ).build(),
                 aPawn().white().on( "b2" ).build(),
                 aPawn().white().on( "c2" ).build(),

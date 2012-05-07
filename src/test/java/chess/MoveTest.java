@@ -9,9 +9,9 @@ import support.GameDriver;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static gui.GameFrame.TITLE;
-import static gui.renderers.PawnRenderer.pawn;
-import static gui.renderers.QueenRenderer.queen;
 import static support.GameDriver.on;
+import static support.GameDriver.pawn;
+import static support.GameDriver.queen;
 
 public class MoveTest {
 

@@ -6,7 +6,9 @@ import com.objogate.wl.swing.driver.JButtonDriver;
 import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
+import gui.renderers.PawnRenderer;
 import gui.renderers.PieceRenderer;
+import gui.renderers.QueenRenderer;
 
 import javax.swing.*;
 
@@ -43,6 +45,12 @@ public class GameDriver extends JFrameDriver {
         return position;
     }
 
+    public static PieceRenderer pawn() {
+        return new PawnRenderer(null);
+    }
 
+    public static PieceRenderer queen() {
+        return new QueenRenderer(null);
+    }
 
 }

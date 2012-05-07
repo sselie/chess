@@ -7,18 +7,12 @@ import javax.swing.*;
 import static builders.QueenBuilder.aQueen;
 import static gui.renderers.PieceRenderer.PIECE_BLACK;
 import static gui.renderers.PieceRenderer.PIECE_WHITE;
-import static gui.renderers.QueenRenderer.queen;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class QueenRendererTest {
 
     JButton button = new JButton();
-
-    @Test public void
-    displaysAsQ() {
-        assertThat( queen().toString(), equalTo( "Q" ) );
-    }
 
     @Test public void
     buttonVisitSetsTextToQ() {
