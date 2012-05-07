@@ -6,7 +6,7 @@ import com.objogate.wl.swing.driver.JButtonDriver;
 import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
-import gui.PieceRenderer;
+import gui.renderers.PieceRenderer;
 
 import javax.swing.*;
 

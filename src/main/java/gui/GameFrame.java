@@ -1,6 +1,7 @@
 package gui;
 
 import chess.Piece;
+import gui.renderers.PieceRenderer;
 
 import javax.swing.*;
 import java.awt.*;

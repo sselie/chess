@@ -1,6 +1,7 @@
 package gui;
 
 import chess.*;
+import gui.renderers.*;
 
 public class RendererFactory {
 

@@ -1,5 +1,6 @@
 package gui;
 
+import gui.renderers.*;
 import org.junit.Before;
 import org.junit.Test;
 

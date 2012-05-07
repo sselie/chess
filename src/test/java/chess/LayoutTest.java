@@ -1,5 +1,6 @@
-package gui;
+package chess;
 
+import gui.GameFrame;
 import org.junit.Before;
 import org.junit.Test;
 

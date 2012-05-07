@@ -51,7 +51,7 @@ public class Launcher {
                 aKnight().black().on( "g8" ).build(),
 
                 aKing().white().on( "e1" ).build(),
-                aKing().white().on( "e8" ).build()
+                aKing().black().on( "e8" ).build()
         );
     }
 }

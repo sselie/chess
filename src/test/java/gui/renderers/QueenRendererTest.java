@@ -1,5 +1,7 @@
-package gui;
+package gui.renderers;
 
+import gui.renderers.PieceRenderer;
+import gui.renderers.QueenRenderer;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.instanceOf;

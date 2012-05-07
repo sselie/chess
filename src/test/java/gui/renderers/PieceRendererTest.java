@@ -1,6 +1,7 @@
-package gui;
+package gui.renderers;
 
 import chess.Piece;
+import gui.renderers.PieceRenderer;
 import org.hamcrest.core.Is;
 import org.junit.Test;
 
