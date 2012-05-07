@@ -13,8 +13,8 @@ import java.util.List;
 public class GameFrame extends JFrame {
 
     public static final String TITLE = "Chess";
-    public static final Color CELL_WHITE = Color.lightGray;
-    public static final Color CELL_BLACK = Color.darkGray.brighter();
+    public static final Color CELL_WHITE = new Color(240, 217, 181);
+    public static final Color CELL_BLACK = new Color(181, 136, 99);
 
     public GameFrame() {
         this.setName( TITLE );
