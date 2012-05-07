@@ -1,11 +1,11 @@
 import gui.GameFrame;
 
+import static builders.BishopBuilder.aBishop;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static builders.RockBuilder.aRock;
 
 public class Launcher {
-
 
     public static void main(String... arg) {
         GameFrame game = new GameFrame();
@@ -36,7 +36,12 @@ public class Launcher {
                 aRock().white().on( "a1" ).build(),
                 aRock().white().on( "h1" ).build(),
                 aRock().black().on( "a8" ).build(),
-                aRock().black().on( "h8" ).build()
+                aRock().black().on( "h8" ).build(),
+
+                aBishop().white().on( "c1" ).build(),
+                aBishop().white().on( "f1" ).build(),
+                aBishop().black().on( "c8" ).build(),
+                aBishop().black().on( "f8" ).build()
         );
     }
 }
