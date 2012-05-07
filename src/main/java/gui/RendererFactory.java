@@ -17,6 +17,9 @@ public class RendererFactory {
         if (piece instanceof Bishop) {
             return new BishopRenderer((Bishop)piece);
         }
+        if (piece instanceof Knight) {
+            return new KnightRenderer((Knight)piece);
+        }
         return null;
     }
     

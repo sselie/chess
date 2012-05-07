@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static builders.BishopBuilder.aBishop;
+import static builders.KnightBuilder.aKnight;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static builders.RockBuilder.aRock;
@@ -37,5 +38,10 @@ public class RendererFactoryTest {
     @Test public void
     bishops() {
         assertThat( factory.rendererOf( aBishop().build()), instanceOf( BishopRenderer.class ) );
+    }
+
+    @Test public void
+    knights() {
+        assertThat( factory.rendererOf( aKnight().build()), instanceOf( KnightRenderer.class ) );
     }
 }
