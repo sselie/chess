@@ -15,4 +15,12 @@ public class RendererFactory {
         }
         return null;
     }
+    
+    public static Renderer queen() {
+        return new QueenRenderer(null);
+    }
+
+    public static Renderer pawn() {
+        return new PawnRenderer(null);
+    }
 }

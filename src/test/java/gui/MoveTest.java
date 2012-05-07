@@ -8,71 +8,74 @@ import support.GameDriver;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static gui.GameFrame.TITLE;
+import static gui.RendererFactory.pawn;
+import static gui.RendererFactory.queen;
+import static support.GameDriver.on;
 
 public class MoveTest {
 
-    GameFrame board;
-    GameDriver driver;
+    GameFrame game;
+    GameDriver board;
 
     @Before public void
     showGame() {
-        board = new GameFrame();
-        board.setVisible( true );
-        driver = new GameDriver();
+        game = new GameFrame();
+        game.setVisible( true );
+        board = new GameDriver();
     }
     @After public void
     hideFrame() {
-        board.setVisible( false );
+        game.setVisible( false );
     }
 
     @Test public void
     frameTitle() {
-        driver.hasTitle( TITLE );
+        board.hasTitle( TITLE );
     }
     
     @Test public void
     canDisplayAPawn() throws InterruptedException {
-        board.display( aPawn().white().on( "e2" ).build() );
-        driver.hasPawnOn( "e2" );
+        game.display( aPawn().white().on( "e2" ).build() );
+        board.has( pawn(), on( "e2" ) );
     }
     
     @Test public void
     canMoveAPawn() {
-        board.display( aPawn().white().on( "e2" ).build() );
-        driver.cell( "e2" ).click();
-        driver.cell( "e4" ).click();
-        driver.hasPawnOn( "e4" );
-        driver.hasNothingOn( "e2" );
+        game.display( aPawn().white().on( "e2" ).build() );
+        board.cell( "e2" ).click();
+        board.cell( "e4" ).click();
+        board.has( pawn(), on( "e4" ) );
+        board.hasNothingOn( "e2" );
     }
 
     @Test public void
     canDisplayAQueen() throws InterruptedException {
-        board.display( aQueen().black().on( "d5" ).build() );
-        driver.hasQueenOn( "d5" );
+        game.display( aQueen().black().on( "d5" ).build() );
+        board.has( queen(), on( "d5" ) );
     }
 
     @Test public void
     canMoveAQueen() {
-        board.display( aQueen().black().on( "d5" ).build() );
-        driver.cell( "d5" ).click();
-        driver.cell( "h5" ).click();
-        driver.hasQueenOn( "h5" );
+        game.display( aQueen().black().on( "d5" ).build() );
+        board.cell( "d5" ).click();
+        board.cell( "h5" ).click();
+        board.has( queen(), on( "h5" ) );
     }
 
     @Test public void
     canMoveSeveralPieces() throws InterruptedException {
-        board.display( aQueen().white().on( "d1" ).build(),
+        game.display( aQueen().white().on( "d1" ).build(),
                 aPawn().white().on( "d2" ).build() );
 
-        driver.cell( "d1" ).click();
-        driver.cell( "g4" ).click();
-        driver.hasQueenOn( "g4" );
+        board.cell( "d1" ).click();
+        board.cell( "g4" ).click();
+        board.has( queen(), on( "g4" ) );
 
-        driver.cell( "d2" ).click();
-        driver.cell( "d3" ).click();
-        driver.hasPawnOn( "d3" );
-
+        board.cell( "d2" ).click();
+        board.cell( "d3" ).click();
+        board.has( pawn(), on( "d3" ) );
     }
+    
 
 
 }
