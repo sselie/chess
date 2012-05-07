@@ -10,7 +10,7 @@ import static builders.QueenBuilder.aQueen;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class EatTest {
+public class CaptureTest {
 
     GameFrame game;
     GameDriver board;
@@ -29,16 +29,18 @@ public class EatTest {
     }
 
     @Test public void
-    canEat() throws InterruptedException {
+    canCapture() throws InterruptedException {
         game.display( aQueen().white().on( "d1" ).build(),
-                aPawn().white().on( "d2" ).build() );
+                aPawn().black().on( "d7" ).build() );
 
         board.cell( "d1" ).click();
-        board.cell( "d2" ).click();
+        board.cell( "d7" ).click();
 
         Thread.sleep(10);
 
         assertThat( game.getPieces().size(), equalTo( 1 ) );
+        
+        Thread.sleep(3000);
 
     }
 }

@@ -2,6 +2,7 @@ import gui.GameFrame;
 
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
+import static builders.RockBuilder.aRock;
 
 public class Launcher {
 
@@ -30,7 +31,12 @@ public class Launcher {
                 aPawn().black().on( "h7" ).build(),
 
                 aQueen().white().on( "d1" ).build(),
-                aQueen().black().on( "d8" ).build()
+                aQueen().black().on( "d8" ).build(),
+                
+                aRock().white().on( "a1" ).build(),
+                aRock().white().on( "h1" ).build(),
+                aRock().black().on( "a8" ).build(),
+                aRock().black().on( "h8" ).build()
         );
     }
 }

@@ -3,6 +3,7 @@ package gui;
 import chess.Pawn;
 import chess.Piece;
 import chess.Queen;
+import chess.Roock;
 
 public class RendererFactory {
 
@@ -12,6 +13,9 @@ public class RendererFactory {
         }
         if (piece instanceof Pawn) {
             return new PawnRenderer((Pawn)piece);
+        }
+        if (piece instanceof Roock) {
+            return new RoockRenderer((Roock)piece);
         }
         return null;
     }
