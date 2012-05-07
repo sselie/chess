@@ -11,7 +11,6 @@ import java.awt.*;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -40,7 +39,7 @@ public class GameFrameTest {
     }
 
     @Test public void
-    allCellsMustHaveAnEmptyContent() {
+    allCellsMustHaveAnEmptyContentByDefault() {
         Component[] all = frame.getContentPane().getComponents();
         for( Component component : all) {
             assertThat( ((JButton) component).getText(), equalTo( "" ) );
@@ -48,14 +47,8 @@ public class GameFrameTest {
     }
 
     @Test public void
-    createTheALetterFromIntValue65() {
+    createTheALetterFromIntValue97() {
         assertThat( new Character( (char) 97 ).toString(), equalTo( "a" ));
-    }
-    
-    @Test public void
-    aWhitePawnMustReallyBeWhite() {
-        frame.display( aPawn().white().on( "a1" ).build() );
-        assertThat( frame.getButtonNamed( "a1" ).getForeground(), is( Color.white ) );
     }
     
     @Test public void

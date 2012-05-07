@@ -7,7 +7,7 @@ import static builders.KingBuilder.aKing;
 import static builders.KnightBuilder.aKnight;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
-import static builders.RockBuilder.aRock;
+import static builders.RockBuilder.aRoock;
 
 public class InitialPositions {
 
@@ -34,10 +34,10 @@ public class InitialPositions {
                 aQueen().white().on( "d1" ).build(),
                 aQueen().black().on( "d8" ).build(),
 
-                aRock().white().on( "a1" ).build(),
-                aRock().white().on( "h1" ).build(),
-                aRock().black().on( "a8" ).build(),
-                aRock().black().on( "h8" ).build(),
+                aRoock().white().on( "a1" ).build(),
+                aRoock().white().on( "h1" ).build(),
+                aRoock().black().on( "a8" ).build(),
+                aRoock().black().on( "h8" ).build(),
 
                 aBishop().white().on( "c1" ).build(),
                 aBishop().white().on( "f1" ).build(),

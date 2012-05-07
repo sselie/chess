@@ -9,7 +9,7 @@ import static builders.KingBuilder.aKing;
 import static builders.KnightBuilder.aKnight;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
-import static builders.RockBuilder.aRock;
+import static builders.RockBuilder.aRoock;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 
@@ -34,7 +34,7 @@ public class RendererFactoryTest {
 
     @Test public void
     rocks() {
-        assertThat( factory.rendererOf( aRock().build()), instanceOf( RoockRenderer.class ) );
+        assertThat( factory.rendererOf( aRoock().build()), instanceOf( RoockRenderer.class ) );
     }
 
     @Test public void

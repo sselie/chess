@@ -13,6 +13,8 @@ import static org.junit.Assert.assertThat;
 
 public class PawnRendererTest {
 
+    JButton button = new JButton();
+
     @Test public void
     displaysAsP() {
         assertThat( pawn().toString(), equalTo( "P" ) );
@@ -20,14 +22,13 @@ public class PawnRendererTest {
 
     @Test public void
     buttonVisitSetsTextToP() {
-        JButton button = new JButton( "some text" );
+        button.setText( "some text" );
         new PawnRenderer( aPawn().build() ).visit( button );
         assertThat( button.getText(), equalTo( "P") );
     }
     
     @Test public void
     buttonVisitSetsForegroundToWhiteForAWhitePawn() {
-        JButton button = new JButton();
         button.setForeground( PIECE_BLACK);
         new PawnRenderer( aPawn().white().build() ).visit( button );
         assertThat( button.getForeground(), equalTo( PIECE_WHITE ));
@@ -35,7 +36,6 @@ public class PawnRendererTest {
 
     @Test public void
     buttonVisitSetsForegroundToBlackForABlackPawn() {
-        JButton button = new JButton();
         button.setForeground( PIECE_WHITE);
         new PawnRenderer( aPawn().black().build() ).visit( button );
         assertThat( button.getForeground(), equalTo( PIECE_BLACK ));

@@ -7,7 +7,7 @@ public class RockBuilder {
     private String cell;
     private boolean white;
 
-    public static RockBuilder aRock() {
+    public static RockBuilder aRoock() {
         return new RockBuilder();
     }
 

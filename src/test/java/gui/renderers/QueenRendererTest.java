@@ -13,6 +13,8 @@ import static org.junit.Assert.assertThat;
 
 public class QueenRendererTest {
 
+    JButton button = new JButton();
+
     @Test public void
     displaysAsQ() {
         assertThat( queen().toString(), equalTo( "Q" ) );
@@ -20,14 +22,13 @@ public class QueenRendererTest {
 
     @Test public void
     buttonVisitSetsTextToQ() {
-        JButton button = new JButton( "some text" );
+        button.setText( "some text" );
         new QueenRenderer( aQueen().build() ).visit( button );
         assertThat( button.getText(), equalTo( "Q") );
     }
 
     @Test public void
     buttonVisitSetsForegroundToWhiteForAWhiteQueen() {
-        JButton button = new JButton();
         button.setForeground( PIECE_BLACK);
         new QueenRenderer( aQueen().white().build() ).visit( button );
         assertThat( button.getForeground(), equalTo( PIECE_WHITE ));
@@ -35,7 +36,6 @@ public class QueenRendererTest {
 
     @Test public void
     buttonVisitSetsForegroundToBlackForABlackQueen() {
-        JButton button = new JButton();
         button.setForeground( PIECE_WHITE);
         new QueenRenderer( aQueen().black().build() ).visit( button );
         assertThat( button.getForeground(), equalTo( PIECE_BLACK ));
