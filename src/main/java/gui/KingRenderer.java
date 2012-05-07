@@ -2,14 +2,14 @@ package gui;
 
 import chess.Piece;
 
-public class KnightRenderer extends PieceRenderer {
+public class KingRenderer extends PieceRenderer {
 
-    public KnightRenderer(Piece piece) {
+    public KingRenderer(Piece piece) {
         super(piece);
     }
 
     @Override
     public String toString() {
-        return "N";
+        return "K";
     }
 }

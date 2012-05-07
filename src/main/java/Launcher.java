@@ -1,6 +1,7 @@
 import gui.GameFrame;
 
 import static builders.BishopBuilder.aBishop;
+import static builders.KingBuilder.aKing;
 import static builders.KnightBuilder.aKnight;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
@@ -47,7 +48,10 @@ public class Launcher {
                 aKnight().white().on( "b1" ).build(),
                 aKnight().white().on( "g1" ).build(),
                 aKnight().black().on( "b8" ).build(),
-                aKnight().black().on( "g8" ).build()
+                aKnight().black().on( "g8" ).build(),
+
+                aKing().white().on( "e1" ).build(),
+                aKing().white().on( "e8" ).build()
         );
     }
 }

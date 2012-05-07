@@ -20,6 +20,9 @@ public class RendererFactory {
         if (piece instanceof Knight) {
             return new KnightRenderer((Knight)piece);
         }
+        if (piece instanceof King) {
+            return new KingRenderer((King)piece);
+        }
         return null;
     }
     
