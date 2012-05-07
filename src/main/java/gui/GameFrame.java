@@ -90,10 +90,10 @@ public class GameFrame extends JFrame {
 
     private List<Piece> pieces;
     public void display(Piece piece) {
-        Renderer renderer = new RendererFactory().rendererOf( piece );
+        PieceRenderer renderer = new RendererFactory().rendererOf( piece );
         getButtonNamed( piece.getPosition() ).setText( renderer.toString() );
         getButtonNamed( piece.getPosition() ).setForeground( renderer.getColor() );
-        if (!pieces.contains(piece)) {
+        if (!pieces.contains( piece )) {
             pieces.add( piece );
         }
     }

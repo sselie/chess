@@ -6,7 +6,7 @@ import chess.Queen;
 
 public class RendererFactory {
 
-    public Renderer rendererOf(Piece piece) {
+    public PieceRenderer rendererOf(Piece piece) {
         if (piece instanceof Queen) {
             return new QueenRenderer((Queen) piece);
         }
@@ -16,11 +16,11 @@ public class RendererFactory {
         return null;
     }
     
-    public static Renderer queen() {
+    public static PieceRenderer queen() {
         return new QueenRenderer(null);
     }
 
-    public static Renderer pawn() {
+    public static PieceRenderer pawn() {
         return new PawnRenderer(null);
     }
 }

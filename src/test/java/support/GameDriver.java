@@ -6,6 +6,7 @@ import com.objogate.wl.swing.driver.JButtonDriver;
 import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
+import gui.PieceRenderer;
 
 import javax.swing.*;
 
@@ -34,7 +35,7 @@ public class GameDriver extends JFrameDriver {
         button( cell ).hasText( equalTo( "" ) );
     }
 
-    public void has(gui.Renderer renderer, String location) {
+    public void has(PieceRenderer renderer, String location) {
         button( location ).hasText( equalTo( renderer.toString() ));
     }
 

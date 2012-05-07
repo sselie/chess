@@ -1,24 +1,13 @@
 package gui;
 
-import chess.Queen;
+import chess.Piece;
 
-import java.awt.*;
+public class QueenRenderer extends PieceRenderer {
 
-import static java.awt.Color.black;
-import static java.awt.Color.white;
-
-public class QueenRenderer implements Renderer {
-
-    private Queen queen;
-
-    public QueenRenderer(Queen queen) {
-        this.queen = queen;
+    public QueenRenderer(Piece piece) {
+        super( piece );
     }
 
-    public Color getColor() {
-        return queen.isWhite() ? white : black;
-    }
-    
     public String toString() {
         return "Q";
     }
