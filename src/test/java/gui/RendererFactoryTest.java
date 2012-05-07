@@ -1,5 +1,6 @@
 package gui;
 
+import chess.Queen;
 import gui.renderers.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import static builders.KnightBuilder.aKnight;
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static builders.RockBuilder.aRoock;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 
@@ -24,7 +26,10 @@ public class RendererFactoryTest {
 
     @Test public void
     queens() {
-        assertThat( factory.rendererOf( aQueen().build()), instanceOf( QueenRenderer.class ) );
+        Queen queen = aQueen().build();
+        PieceRenderer renderer = factory.rendererOf( queen );
+        assertThat( renderer, instanceOf( QueenRenderer.class ) );
+        assertThat( (Queen) renderer.getPiece(), equalTo( queen ) );
     }
 
     @Test public void
@@ -51,4 +56,14 @@ public class RendererFactoryTest {
     kings() {
         assertThat( factory.rendererOf( aKing().build()), instanceOf( KingRenderer.class ) );
     }
+    
+    @Test public void
+    classIdentification() {
+        assertThat( factory.getClassOf( aQueen().build() ), equalTo( "Queen" ) );
+    }
+    @Test public void
+    rendererClassNameConstruction() {
+        assertThat( factory.getRendererClass( aQueen().build() ), equalTo( "gui.renderers.QueenRenderer" ) );
+    }
+    
 }

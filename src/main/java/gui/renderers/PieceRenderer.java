@@ -26,4 +26,8 @@ public abstract class PieceRenderer {
         button.setText( toString() );
         button.setForeground( getColor() );
     }
+
+    public Piece getPiece() {
+        return piece;
+    }
 }
