@@ -29,9 +29,9 @@ public class GameFrame extends JFrame {
         this.createLine( 2 );
         this.createLine( 1 );
 
-        clearBoard();
         selection = null;
-    }
+        pieces = new ArrayList<Piece>();
+}
 
     private void createLine(int line) {
         Color color = line % 2 == 0 ? Color.lightGray : Color.darkGray;
@@ -71,29 +71,21 @@ public class GameFrame extends JFrame {
         return null;
     }
 
-    private void clearBoard() {
-        Component[] all = this.getContentPane().getComponents();
-        for( Component component : all) {
-            ((JButton) component).setText( "" );
-        }
-        pieces = new ArrayList<Piece>();
-    }
-
     private Piece selection;
     protected void clicked(JButton source) {
         if (selection == null) {
             selection = getPieceByPosition( source.getName() );
         }
         else {
-            take( selection );
+            getButtonNamed( selection.getPosition() ).setText( "" );
+            Piece potentialEaten = getPieceByPosition( source.getName() );
+            if (potentialEaten != null) {
+                pieces.remove( potentialEaten );
+            }
             selection.setPosition( source.getName() );
             display( selection );
             selection = null;
         }
-    }
-
-    private void take(Piece piece) {
-        getButtonNamed( piece.getPosition() ).setText( "" );
     }
 
     private List<Piece> pieces;
@@ -101,10 +93,12 @@ public class GameFrame extends JFrame {
         Renderer renderer = new RendererFactory().rendererOf( piece );
         getButtonNamed( piece.getPosition() ).setText( renderer.toString() );
         getButtonNamed( piece.getPosition() ).setForeground( renderer.getColor() );
-        this.pieces.add( piece );
+        if (!pieces.contains(piece)) {
+            pieces.add( piece );
+        }
     }
-    public void display(Piece... pieces) {
-        for(Piece piece:pieces) {
+    public void display(Piece... given) {
+        for(Piece piece:given) {
             display( piece );
         }
     }
@@ -118,4 +112,11 @@ public class GameFrame extends JFrame {
         return null;
     }
 
+    public List<Piece> getPieces() {
+        return pieces;
+    }
+
+    public Piece getSelection() {
+        return selection;
+    }
 }
