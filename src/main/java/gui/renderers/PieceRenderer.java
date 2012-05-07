@@ -2,6 +2,7 @@ package gui.renderers;
 
 import chess.Piece;
 
+import javax.swing.*;
 import java.awt.*;
 
 import static java.awt.Color.black;
@@ -21,5 +22,8 @@ public abstract class PieceRenderer {
         return piece.isWhite() ? PIECE_WHITE : PIECE_BLACK;
     }
 
-    public abstract String toString();
+    public void visit(JButton button) {
+        button.setText( toString() );
+        button.setForeground( getColor() );
+    }
 }

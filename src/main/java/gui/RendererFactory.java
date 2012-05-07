@@ -26,12 +26,4 @@ public class RendererFactory {
         }
         return null;
     }
-    
-    public static PieceRenderer queen() {
-        return new QueenRenderer(null);
-    }
-
-    public static PieceRenderer pawn() {
-        return new PawnRenderer(null);
-    }
 }

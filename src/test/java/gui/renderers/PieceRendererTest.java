@@ -4,6 +4,8 @@ import chess.Piece;
 import org.hamcrest.core.Is;
 import org.junit.Test;
 
+import javax.swing.*;
+
 import static gui.renderers.PieceRenderer.PIECE_BLACK;
 import static gui.renderers.PieceRenderer.PIECE_WHITE;
 import static org.junit.Assert.assertThat;
@@ -20,6 +22,8 @@ public class PieceRendererTest {
             public String toString() {
                 return null;
             }
+            public void visit(JButton button) {
+            }
         };
         assertThat( renderer.getColor(), Is.is( PIECE_WHITE ) );
     }
@@ -33,6 +37,8 @@ public class PieceRendererTest {
         PieceRenderer renderer = new PieceRenderer(piece) {
             public String toString() {
                 return null;
+            }
+            public void visit(JButton button) {
             }
         };
         assertThat( renderer.getColor(), Is.is( PIECE_BLACK ) );
