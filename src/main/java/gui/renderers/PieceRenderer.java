@@ -9,6 +9,8 @@ import static java.awt.Color.white;
 
 public abstract class PieceRenderer {
 
+    public static final Color PIECE_WHITE = white;
+    public static final Color PIECE_BLACK = black;
     private Piece piece;
 
     public PieceRenderer(Piece piece) {
@@ -16,7 +18,7 @@ public abstract class PieceRenderer {
     }
 
     public Color getColor() {
-        return piece.isWhite() ? white : black;
+        return piece.isWhite() ? PIECE_WHITE : PIECE_BLACK;
     }
 
     public abstract String toString();

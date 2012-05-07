@@ -1,12 +1,11 @@
 package gui.renderers;
 
 import chess.Piece;
-import gui.renderers.PieceRenderer;
 import org.hamcrest.core.Is;
 import org.junit.Test;
 
-import java.awt.*;
-
+import static gui.renderers.PieceRenderer.PIECE_BLACK;
+import static gui.renderers.PieceRenderer.PIECE_WHITE;
 import static org.junit.Assert.assertThat;
 
 public class PieceRendererTest {
@@ -22,7 +21,7 @@ public class PieceRendererTest {
                 return null;
             }
         };
-        assertThat( renderer.getColor(), Is.is( Color.white ) );
+        assertThat( renderer.getColor(), Is.is( PIECE_WHITE ) );
     }
 
     @Test
@@ -36,7 +35,7 @@ public class PieceRendererTest {
                 return null;
             }
         };
-        assertThat( renderer.getColor(), Is.is( Color.black ) );
+        assertThat( renderer.getColor(), Is.is( PIECE_BLACK ) );
     }
 
 }

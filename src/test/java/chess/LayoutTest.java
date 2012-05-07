@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static java.awt.Color.darkGray;
-import static java.awt.Color.lightGray;
+import static gui.GameFrame.CELL_BLACK;
+import static gui.GameFrame.CELL_WHITE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -23,26 +23,26 @@ public class LayoutTest {
 
     @Test public void
     firstLine() {
-        assertThat( colorOf( "a8" ), is( lightGray ) );
-        assertThat( colorOf( "b8" ), is( darkGray ) );
-        assertThat( colorOf( "c8" ), is( lightGray ) );
-        assertThat( colorOf( "d8" ), is( darkGray ) );
-        assertThat( colorOf( "e8" ), is( lightGray ) );
-        assertThat( colorOf( "f8" ), is( darkGray ) );
-        assertThat( colorOf( "g8" ), is( lightGray ) );
-        assertThat( colorOf( "h8" ), is( darkGray ) );
+        assertThat( colorOf( "a8" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "b8" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "c8" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "d8" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "e8" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "f8" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "g8" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "h8" ), is( CELL_BLACK ) );
     }
 
     @Test public void
     secondLine() {
-        assertThat( colorOf( "a7" ), is( darkGray ) );
-        assertThat( colorOf( "b7" ), is( lightGray ) );
-        assertThat( colorOf( "c7" ), is( darkGray ) );
-        assertThat( colorOf( "d7" ), is( lightGray ) );
-        assertThat( colorOf( "e7" ), is( darkGray ) );
-        assertThat( colorOf( "f7" ), is( lightGray ) );
-        assertThat( colorOf( "g7" ), is( darkGray ) );
-        assertThat( colorOf( "h7" ), is( lightGray ) );
+        assertThat( colorOf( "a7" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "b7" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "c7" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "d7" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "e7" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "f7" ), is( CELL_WHITE ) );
+        assertThat( colorOf( "g7" ), is( CELL_BLACK ) );
+        assertThat( colorOf( "h7" ), is( CELL_WHITE ) );
     }
 
     private Color colorOf(String name) {

@@ -13,6 +13,8 @@ import java.util.List;
 public class GameFrame extends JFrame {
 
     public static final String TITLE = "Chess";
+    public static final Color CELL_WHITE = Color.lightGray;
+    public static final Color CELL_BLACK = Color.darkGray.brighter();
 
     public GameFrame() {
         this.setName( TITLE );
@@ -35,10 +37,10 @@ public class GameFrame extends JFrame {
 }
 
     private void createLine(int line) {
-        Color color = line % 2 == 0 ? Color.lightGray : Color.darkGray;
+        Color color = line % 2 == 0 ? CELL_WHITE : CELL_BLACK;
         for (char column = 0; column < 8; column++) {
             this.create( letterOf( column ) + line, color );
-            color = color == Color.darkGray ? Color.lightGray : Color.darkGray;
+            color = color == CELL_BLACK ? CELL_WHITE : CELL_BLACK;
         }
     }
 
