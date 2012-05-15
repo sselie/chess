@@ -41,7 +41,5 @@ public class CaptureTest {
 
         assertThat( game.getPieces().size(), equalTo( 1 ) );
         
-        Thread.sleep(3000);
-
     }
 }
