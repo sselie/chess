@@ -1,7 +1,8 @@
-syntax: glob
-
 .idea
-*.iml
-
 out
+.iml
+target
+.DS_Store
+reports
+
 
