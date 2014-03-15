@@ -9,8 +9,7 @@ public class PawnRenderer extends PieceRenderer {
     }
 
     public String toString() {
-        return "P";
+        return "pawn";
     }
-
 
 }

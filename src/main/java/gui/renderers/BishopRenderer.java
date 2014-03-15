@@ -9,6 +9,6 @@ public class BishopRenderer extends PieceRenderer {
     }
 
     public String toString() {
-        return "B";
+        return "bishop";
     }
 }

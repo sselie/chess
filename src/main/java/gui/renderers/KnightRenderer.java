@@ -10,6 +10,6 @@ public class KnightRenderer extends PieceRenderer {
 
     @Override
     public String toString() {
-        return "N";
+        return "knight";
     }
 }

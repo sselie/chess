@@ -47,6 +47,14 @@ public class GameFrameTest {
     }
 
     @Test public void
+    allCellsMustHaveAnEmptyImageByDefault() {
+        Component[] all = frame.getContentPane().getComponents();
+        for( Component component : all) {
+            assertThat( ((JButton) component).getIcon(), equalTo( null ) );
+        }
+    }
+
+    @Test public void
     createTheALetterFromIntValue97() {
         assertThat( new Character( (char) 97 ).toString(), equalTo( "a" ));
     }

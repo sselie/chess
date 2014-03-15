@@ -28,6 +28,9 @@
     <target name="compile" depends="init"
             description="compile the source " >
         <javac includeAntRuntime="false" srcdir="${src}" destdir="${build}"/>
+        <copy todir="${build}/gui/renderers/">
+            <fileset dir="${src}/gui/renderers"/>
+        </copy>
     </target>
 
     <target name="dist" depends="compile"
@@ -61,7 +64,7 @@
         </junit>
     </target>
 
-    <target name="run" depends="compile">
+    <target name="play" depends="compile">
         <java classname="Launcher" fork="true">
             <classpath>
                 <pathelement location="${build}" />

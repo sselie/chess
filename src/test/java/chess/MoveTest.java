@@ -8,10 +8,7 @@ import support.GameDriver;
 
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
-import static gui.GameFrame.TITLE;
-import static support.GameDriver.on;
-import static support.GameDriver.pawn;
-import static support.GameDriver.queen;
+import static support.GameDriver.*;
 
 public class MoveTest {
 
@@ -30,29 +27,12 @@ public class MoveTest {
     }
 
     @Test public void
-    frameTitle() {
-        board.hasTitle( TITLE );
-    }
-    
-    @Test public void
-    canDisplayAPawn() throws InterruptedException {
-        game.display( aPawn().white().on( "e2" ).build() );
-        board.has( pawn(), on( "e2" ) );
-    }
-    
-    @Test public void
     canMoveAPawn() {
         game.display( aPawn().white().on( "e2" ).build() );
         board.cell( "e2" ).click();
         board.cell( "e4" ).click();
         board.has( pawn(), on( "e4" ) );
         board.hasNothingOn( "e2" );
-    }
-
-    @Test public void
-    canDisplayAQueen() throws InterruptedException {
-        game.display( aQueen().black().on( "d5" ).build() );
-        board.has( queen(), on( "d5" ) );
     }
 
     @Test public void
@@ -76,7 +56,4 @@ public class MoveTest {
         board.cell( "d3" ).click();
         board.has( pawn(), on( "d3" ) );
     }
-    
-
-
 }

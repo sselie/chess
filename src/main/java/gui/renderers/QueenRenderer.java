@@ -9,7 +9,7 @@ public class QueenRenderer extends PieceRenderer {
     }
 
     public String toString() {
-        return "Q";
+        return "queen";
     }
 
 }

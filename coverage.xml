@@ -26,6 +26,9 @@
         <mkdir dir="${result.classes.dir}" />
         <mkdir dir="${result.test.classes.dir}" />
         <javac srcdir="${src.dir}" destdir="${result.classes.dir}" debug="true" includeantruntime="false" />
+        <copy todir="${result.classes.dir}/gui/renderers/">
+            <fileset dir="${src.dir}/gui/renderers"/>
+        </copy>
         <javac includeAntRuntime="false" srcdir="src/test/java" destdir="target/test-classes"
                classpath="${result.classes.dir}; lib/junit.jar; lib/hamcrest-all-1.2.jar; lib/windowlicker-core-DEV.jar; lib/windowlicker-swing-DEV.jar" />
     </target>

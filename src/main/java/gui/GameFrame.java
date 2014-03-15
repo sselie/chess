@@ -80,7 +80,7 @@ public class GameFrame extends JFrame {
             selection = getPieceByPosition( source.getName() );
         }
         else {
-            getButtonNamed( selection.getPosition() ).setText( "" );
+            getButtonNamed( selection.getPosition() ).setIcon( null );
             Piece potentialEaten = getPieceByPosition( source.getName() );
             if (potentialEaten != null) {
                 pieces.remove( potentialEaten );

@@ -10,6 +10,6 @@ public class KingRenderer extends PieceRenderer {
 
     @Override
     public String toString() {
-        return "K";
+        return "king";
     }
 }

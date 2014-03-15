@@ -9,6 +9,6 @@ public class RoockRenderer extends PieceRenderer {
     }
 
     public String toString() {
-        return "R";
+        return "roock";
     }
 }

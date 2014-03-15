@@ -7,13 +7,13 @@ import com.objogate.wl.swing.driver.JFrameDriver;
 import com.objogate.wl.swing.driver.JLabelDriver;
 import com.objogate.wl.swing.gesture.GesturePerformer;
 import gui.renderers.PawnRenderer;
-import gui.renderers.PieceRenderer;
 import gui.renderers.QueenRenderer;
+import gui.renderers.RoockRenderer;
 
 import javax.swing.*;
 
 import static gui.GameFrame.TITLE;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.internal.matchers.StringContains.containsString;
 
 public class GameDriver extends JFrameDriver {
 
@@ -25,8 +25,8 @@ public class GameDriver extends JFrameDriver {
     public JLabelDriver label(String name) {
         return new JLabelDriver(this, ComponentDriver.named( name ));
     }
-    public JButtonDriver button(String name) {
-        return new JButtonDriver(this, JButton.class, ComponentDriver.named( name ));
+    public JButtonWithIconDriver button(String name) {
+        return new JButtonWithIconDriver(this, JButton.class, ComponentDriver.named( name ));
     }
 
     public JButtonDriver cell(String name) {
@@ -34,23 +34,38 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasNothingOn(String cell) {
-        button( cell ).hasText( equalTo( "" ) );
+        button( cell ).hasNoIcon( );
     }
 
-    public void has(PieceRenderer renderer, String location) {
-        button( location ).hasText( equalTo( renderer.toString() ));
+    public void has(String pieceName, String location) {
+        button( location ).hasIcon( containsString( pieceName ) );
+    }
+
+    public void hasBlack(String pieceName, String location) {
+        has(pieceName, location);
+        button( location ).hasIcon( containsString( "black" ) );
+    }
+
+    public void hasWhite(String pieceName, String location) {
+        has(pieceName, location);
+        button( location ).hasIcon( containsString( "white" ) );
     }
 
     public static String on(String position) {
         return position;
     }
 
-    public static PieceRenderer pawn() {
-        return new PawnRenderer(null);
+    public static String pawn() {
+        return new PawnRenderer( null ).toString();
     }
 
-    public static PieceRenderer queen() {
-        return new QueenRenderer(null);
+    public static String queen() {
+        return new QueenRenderer( null ).toString();
+    }
+
+    public static String rook() {
+        return new RoockRenderer( null ).toString();
     }
 
 }
+
