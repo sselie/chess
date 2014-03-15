@@ -1,20 +1,20 @@
 package gui;
 
 import chess.Piece;
+import chess.Pieces;
 import gui.renderers.PieceRenderer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameFrame extends JFrame {
 
     public static final String TITLE = "Chess";
     public static final Color CELL_WHITE = new Color(240, 217, 181);
     public static final Color CELL_BLACK = new Color(181, 136, 99);
+    private MoveCommand moveCommand;
 
     public GameFrame() {
         this.setName( TITLE );
@@ -33,8 +33,9 @@ public class GameFrame extends JFrame {
         this.createLine( 1 );
 
         selection = null;
-        pieces = new ArrayList<Piece>();
-}
+        pieces = new Pieces();
+        moveCommand = new MoveAndEat( this, pieces );
+    }
 
     private void createLine(int line) {
         Color color = line % 2 == 0 ? CELL_WHITE : CELL_BLACK;
@@ -77,21 +78,19 @@ public class GameFrame extends JFrame {
     private Piece selection;
     protected void clicked(JButton source) {
         if (selection == null) {
-            selection = getPieceByPosition( source.getName() );
+            selection = pieces.getPieceWithPosition( source.getName() );
         }
         else {
-            getButtonNamed( selection.getPosition() ).setIcon( null );
-            Piece potentialEaten = getPieceByPosition( source.getName() );
-            if (potentialEaten != null) {
-                pieces.remove( potentialEaten );
-            }
-            selection.setPosition( source.getName() );
-            display( selection );
+            moveCommand.move( selection.getPosition(), source.getName() );
             selection = null;
         }
     }
 
-    private List<Piece> pieces;
+    private Pieces pieces;
+    public Pieces getPieces() {
+        return pieces;
+    }
+
     public void display(Piece piece) {
         PieceRenderer renderer = new RendererFactory().rendererOf( piece );
         renderer.visit( getButtonNamed( piece.getPosition() ) );
@@ -105,20 +104,11 @@ public class GameFrame extends JFrame {
         }
     }
 
-    protected Piece getPieceByPosition(String position) {
-        for(Piece piece:pieces) {
-            if (piece.getPosition().equalsIgnoreCase(position)) {
-                return piece;
-            }
-        }
-        return null;
+    public void setMoveCommand(MoveCommand moveCommand) {
+        this.moveCommand = moveCommand;
     }
 
-    public List<Piece> getPieces() {
-        return pieces;
-    }
-
-    public Piece getSelection() {
-        return selection;
+    public void clearPosition(String initialPosition) {
+        getButtonNamed( initialPosition ).setIcon( null );
     }
 }
