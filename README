@@ -6,5 +6,5 @@ With Buildr
 With Ant
 1. install ant    : http://ant.apache.org/
 2. see the tests  : ant test
-3. play			  : ant play
+3. play           : ant play
 
