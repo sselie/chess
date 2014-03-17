@@ -20,6 +20,7 @@ public class GameFrame extends JFrame {
         this.setName( TITLE );
         this.setTitle( TITLE );
         this.setSize( 500, 500 );
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         this.getContentPane().setLayout( new GridLayout( 8, 8 ) );
 
