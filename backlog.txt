@@ -12,3 +12,4 @@ Redo
 Network game
 ELO rating
 The same player cannot play twice in a row
+Player with white pieces starts
