@@ -2,6 +2,7 @@ package gui;
 
 import chess.Queen;
 import gui.renderers.*;
+import imhotep.Imhotep;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,6 +16,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 
+@Imhotep(level="Unit")
 public class RendererFactoryTest {
 
     RendererFactory factory;

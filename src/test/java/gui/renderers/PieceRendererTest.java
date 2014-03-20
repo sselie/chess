@@ -1,6 +1,7 @@
 package gui.renderers;
 
 import chess.Piece;
+import imhotep.Imhotep;
 import org.hamcrest.core.Is;
 import org.junit.Test;
 
@@ -12,6 +13,7 @@ import static gui.renderers.PieceRenderer.PIECE_WHITE;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
 
+@Imhotep(level="Unit")
 public class PieceRendererTest {
 
     @Test

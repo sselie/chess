@@ -1,6 +1,7 @@
 package chess;
 
 import gui.GameFrame;
+import imhotep.Imhotep;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +12,7 @@ import static gui.GameFrame.CELL_WHITE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+@Imhotep(level="Domain")
 public class LayoutTest {
 
     GameFrame frame;

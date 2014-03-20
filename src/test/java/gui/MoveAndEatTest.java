@@ -2,6 +2,7 @@ package gui;
 
 import chess.Pieces;
 import chess.Queen;
+import imhotep.Imhotep;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +13,7 @@ import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.internal.matchers.StringContains.containsString;
 
+@Imhotep(level="Domain")
 public class MoveAndEatTest {
 
     GameFrame frame;

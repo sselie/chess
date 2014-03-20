@@ -1,10 +1,12 @@
 import gui.GameFrame;
+import imhotep.Imhotep;
 import org.junit.Ignore;
 import org.junit.Test;
 import support.GameDriver;
 
 import static chess.rules.InitialPositions.initialPositions;
 
+@Imhotep(level="UI")
 public class ImmortalGame {
 
     GameFrame game;

@@ -2,6 +2,7 @@ package gui;
 
 import chess.Pawn;
 import chess.Queen;
+import imhotep.Imhotep;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+@Imhotep(level="Unit")
 public class GameFrameTest {
 
     GameFrame frame;

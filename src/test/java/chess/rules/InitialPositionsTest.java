@@ -1,6 +1,7 @@
 package chess.rules;
 
 import gui.GameFrame;
+import imhotep.Imhotep;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import static chess.rules.InitialPositions.initialPositions;
 import static support.GameDriver.on;
 import static support.GameDriver.rook;
 
+@Imhotep(level="UI")
 public class InitialPositionsTest {
 
     GameFrame game;

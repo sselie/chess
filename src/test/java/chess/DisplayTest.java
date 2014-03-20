@@ -1,6 +1,7 @@
 package chess;
 
 import gui.GameFrame;
+import imhotep.Imhotep;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import static builders.QueenBuilder.aQueen;
 import static gui.GameFrame.TITLE;
 import static support.GameDriver.*;
 
+@Imhotep(level="UI")
 public class DisplayTest {
 
     GameFrame game;
