@@ -62,6 +62,7 @@
                 </fileset>
             </batchtest>
             <formatter type="plain" usefile="false" />
+            <jvmarg value="-Dcom.objogate.wl.keyboard=US"/>
         </junit>
     </target>
 

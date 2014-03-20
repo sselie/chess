@@ -51,6 +51,7 @@
                         <include name="**/*Test.class"/>
                     </fileset>
                 </batchtest>
+                <jvmarg value="-Dcom.objogate.wl.keyboard=US"/>
             </junit>
         </jacoco:coverage>
     </target>
