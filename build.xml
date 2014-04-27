@@ -43,7 +43,7 @@
     <target name="compile_all" depends="compile"
             description="compile the source and the tests " >
         <javac includeAntRuntime="false" srcdir="${tests}" destdir="${build}"
-               classpath="${lib}/junit.jar; ${lib}/hamcrest-all-1.2.jar; ${lib}/mockito-all-1.8.5.jar; ${lib}/windowlicker-core-DEV.jar; ${lib}/windowlicker-swing-DEV.jar" />
+               classpath="${lib}/junit.jar; ${lib}/hamcrest-all-1.2.jar; ${lib}/mockito-all-1.8.5.jar; ${lib}/windowlicker-core-DEV.jar; ${lib}/windowlicker-swing-DEV.jar; ${lib}/imhotep-20140319.jar" />
     </target>
 
     <target name="test" depends="compile_all">
