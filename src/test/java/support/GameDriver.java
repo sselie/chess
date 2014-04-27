@@ -34,7 +34,12 @@ public class GameDriver extends JFrameDriver {
     }
 
     public void hasNothingOn(String cell) {
-        button( cell ).hasNoIcon( );
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        button(cell).hasNoIcon( );
     }
 
     public void has(String pieceName, String location) {
