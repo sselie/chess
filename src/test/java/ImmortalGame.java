@@ -1,10 +1,11 @@
+import static chess.rules.InitialPositions.initialPositions;
 import gui.GameFrame;
 import imhotep.Imhotep;
+
 import org.junit.Ignore;
 import org.junit.Test;
-import support.GameDriver;
 
-import static chess.rules.InitialPositions.initialPositions;
+import support.GameDriver;
 
 @Imhotep(level="UI")
 public class ImmortalGame {
@@ -15,7 +16,7 @@ public class ImmortalGame {
     @Ignore
     @Test public void
     playImmortalGame() throws InterruptedException {
-        game = new GameFrame();
+        game = new GameFrame(null);
         game.setVisible( true );
         board = new GameDriver();
         game.display( initialPositions() );
@@ -48,7 +49,7 @@ public class ImmortalGame {
         game.setVisible( false );
     }
 
-    private void play(String origin, String destination) {
+    private void play(final String origin, final String destination) {
         board.cell( origin ).click();
         board.cell( destination ).click();
     }

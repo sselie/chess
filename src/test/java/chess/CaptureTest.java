@@ -1,16 +1,17 @@
 package chess;
 
-import gui.GameFrame;
-import imhotep.Imhotep;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import support.GameDriver;
-
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import gui.GameFrame;
+import imhotep.Imhotep;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import support.GameDriver;
 
 @Imhotep(level="UI")
 public class CaptureTest {
@@ -21,7 +22,7 @@ public class CaptureTest {
     @Before
     public void
     showGame() {
-        game = new GameFrame();
+        game = new GameFrame(null);
         game.setVisible( true );
         board = new GameDriver();
     }
@@ -42,6 +43,6 @@ public class CaptureTest {
         Thread.sleep(10);
 
         assertThat( game.getPieces().size(), equalTo( 1 ) );
-        
+
     }
 }

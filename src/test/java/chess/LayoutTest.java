@@ -1,16 +1,16 @@
 package chess;
 
-import gui.GameFrame;
-import imhotep.Imhotep;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.awt.*;
-
 import static gui.GameFrame.CELL_BLACK;
 import static gui.GameFrame.CELL_WHITE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import gui.GameFrame;
+import imhotep.Imhotep;
+
+import java.awt.Color;
+
+import org.junit.Before;
+import org.junit.Test;
 
 @Imhotep(level="Domain")
 public class LayoutTest {
@@ -20,7 +20,7 @@ public class LayoutTest {
     @Before
     public void
     newFrame() {
-        frame = new GameFrame();
+        frame = new GameFrame(null);
     }
 
     @Test public void
@@ -47,7 +47,7 @@ public class LayoutTest {
         assertThat( colorOf( "h7" ), is( CELL_WHITE ) );
     }
 
-    private Color colorOf(String name) {
+    private Color colorOf(final String name) {
         return frame.getButtonNamed( name ).getBackground();
     }
 

@@ -1,13 +1,16 @@
-import gui.GameFrame;
-
 import static chess.rules.InitialPositions.initialPositions;
+import gui.GameFrame;
+import chess.Game;
 
 public class Launcher {
 
-    public static void main(String... arg) {
-        GameFrame game = new GameFrame();
-        game.setVisible( true );
+    public static void main(final String... arg)
+    {
+        final Game game = new Game();
 
-        game.display( initialPositions() );
+        final GameFrame frame = new GameFrame(game);
+        frame.setVisible( true );
+
+        frame.display( initialPositions() );
     }
 }

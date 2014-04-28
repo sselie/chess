@@ -1,13 +1,20 @@
 package gui;
 
-import chess.Piece;
-import chess.Pieces;
 import gui.renderers.PieceRenderer;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
+import chess.Game;
+import chess.Piece;
+import chess.Pieces;
 
 public class GameFrame extends JFrame {
 
@@ -16,7 +23,7 @@ public class GameFrame extends JFrame {
     public static final Color CELL_BLACK = new Color(181, 136, 99);
     private MoveCommand moveCommand;
 
-    public GameFrame() {
+    public GameFrame(final Game game) {
         this.setName( TITLE );
         this.setTitle( TITLE );
         this.setSize( 500, 500 );
@@ -38,7 +45,7 @@ public class GameFrame extends JFrame {
         moveCommand = new MoveAndEat( this, pieces );
     }
 
-    private void createLine(int line) {
+    private void createLine(final int line) {
         Color color = line % 2 == 0 ? CELL_WHITE : CELL_BLACK;
         for (char column = 0; column < 8; column++) {
             this.create( letterOf( column ) + line, color );
@@ -46,29 +53,29 @@ public class GameFrame extends JFrame {
         }
     }
 
-    private String letterOf(char column) {
+    private String letterOf(final char column) {
         return new Character( (char) (97 + column) ).toString();
     }
 
-    private void create(String name, Color color) {
-        JButton button = new JButton();
+    private void create(final String name, final Color color) {
+        final JButton button = new JButton();
         button.setName( name );
         button.setOpaque( true );
         button.setBackground( color );
         button.setBorderPainted( false );
         this.getContentPane().add( button );
-        
+
         button.addActionListener( new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(final ActionEvent actionEvent) {
                 GameFrame.this.clicked( (JButton) actionEvent.getSource() );
             }
         } );
     }
 
-    public JButton getButtonNamed(String name) {
-        Component[] all = this.getContentPane().getComponents();
-        for( Component component : all) {
+    public JButton getButtonNamed(final String name) {
+        final Component[] all = this.getContentPane().getComponents();
+        for( final Component component : all) {
             if (component.getName().equalsIgnoreCase(name)) {
                 return (JButton) component;
             }
@@ -77,7 +84,7 @@ public class GameFrame extends JFrame {
     }
 
     private Piece selection;
-    protected void clicked(JButton source) {
+    protected void clicked(final JButton source) {
         if (selection == null) {
             selection = pieces.getPieceWithPosition( source.getName() );
         }
@@ -87,29 +94,29 @@ public class GameFrame extends JFrame {
         }
     }
 
-    private Pieces pieces;
+    private final Pieces pieces;
     public Pieces getPieces() {
         return pieces;
     }
 
-    public void display(Piece piece) {
-        PieceRenderer renderer = new RendererFactory().rendererOf( piece );
+    public void display(final Piece piece) {
+        final PieceRenderer renderer = new RendererFactory().rendererOf( piece );
         renderer.visit( getButtonNamed( piece.getPosition() ) );
         if (!pieces.contains( piece )) {
             pieces.add( piece );
         }
     }
-    public void display(Piece... given) {
-        for(Piece piece:given) {
+    public void display(final Piece... given) {
+        for(final Piece piece:given) {
             display( piece );
         }
     }
 
-    public void setMoveCommand(MoveCommand moveCommand) {
+    public void setMoveCommand(final MoveCommand moveCommand) {
         this.moveCommand = moveCommand;
     }
 
-    public void clearPosition(String initialPosition) {
+    public void clearPosition(final String initialPosition) {
         getButtonNamed( initialPosition ).setIcon( null );
     }
 }

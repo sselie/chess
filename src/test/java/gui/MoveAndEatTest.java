@@ -1,17 +1,18 @@
 package gui;
 
-import chess.Pieces;
-import chess.Queen;
-import imhotep.Imhotep;
-import org.junit.Before;
-import org.junit.Test;
-
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.internal.matchers.StringContains.containsString;
+import imhotep.Imhotep;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import chess.Pieces;
+import chess.Queen;
 
 @Imhotep(level="Domain")
 public class MoveAndEatTest {
@@ -22,7 +23,7 @@ public class MoveAndEatTest {
 
     @Before public void
     movingAQueenOnAPawn() {
-        frame = new GameFrame();
+        frame = new GameFrame(null);
         frame.display( aQueen().black().on( "d5" ).build() );
         frame.display( aPawn().white().on( "e5" ).build() );
         frame.display( aPawn().white().on( "f5" ).build() );

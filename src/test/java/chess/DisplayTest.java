@@ -1,16 +1,19 @@
 package chess;
 
-import gui.GameFrame;
-import imhotep.Imhotep;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import support.GameDriver;
-
 import static builders.PawnBuilder.aPawn;
 import static builders.QueenBuilder.aQueen;
 import static gui.GameFrame.TITLE;
-import static support.GameDriver.*;
+import static support.GameDriver.on;
+import static support.GameDriver.pawn;
+import static support.GameDriver.queen;
+import gui.GameFrame;
+import imhotep.Imhotep;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import support.GameDriver;
 
 @Imhotep(level="UI")
 public class DisplayTest {
@@ -21,7 +24,7 @@ public class DisplayTest {
     @Before
     public void
     showGame() {
-        game = new GameFrame();
+        game = new GameFrame(null);
         game.setVisible( true );
         board = new GameDriver();
     }
