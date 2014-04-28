@@ -1,3 +1,8 @@
+Use a specific type for the Piece position instead of a string
+Extract interface for GameFrame
+Fix compilation warnings
+Why the test is ignored on "ImmortalGame"
+
 Automatically moves the Rook on castling
 Show allowed moves when clicking on a piece
 Show captured pieces

@@ -30,7 +30,7 @@
             <fileset dir="${src.dir}/gui/renderers"/>
         </copy>
         <javac includeAntRuntime="false" srcdir="src/test/java" destdir="target/test-classes"
-               classpath="${result.classes.dir}; lib/junit.jar; lib/hamcrest-all-1.2.jar; lib/mockito-all-1.8.5.jar; lib/windowlicker-core-DEV.jar; lib/windowlicker-swing-DEV.jar" />
+               classpath="${result.classes.dir}; lib/junit.jar; lib/hamcrest-all-1.2.jar; lib/mockito-all-1.8.5.jar; lib/windowlicker-core-DEV.jar; lib/windowlicker-swing-DEV.jar; lib/imhotep-20140319.jar" />
     </target>
 
     <target name="test" depends="compile">
@@ -45,6 +45,7 @@
                     <pathelement location="lib/windowlicker-swing-DEV.jar"/>
                     <pathelement location="${result.classes.dir}" />
                     <pathelement location="${result.test.classes.dir}" />
+                    <pathelement location="lib/imhotep-20140319.jar" />
                 </classpath>
                 <batchtest fork="yes">
                     <fileset dir="${result.test.classes.dir}">
