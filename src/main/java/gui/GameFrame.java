@@ -14,14 +14,13 @@ import javax.swing.WindowConstants;
 
 import chess.Game;
 import chess.Piece;
-import chess.Pieces;
 
 public class GameFrame extends JFrame {
 
     public static final String TITLE = "Chess";
     public static final Color CELL_WHITE = new Color(240, 217, 181);
     public static final Color CELL_BLACK = new Color(181, 136, 99);
-    private MoveCommand moveCommand;
+    private final Game game;
 
     public GameFrame(final Game game) {
         this.setName( TITLE );
@@ -40,9 +39,7 @@ public class GameFrame extends JFrame {
         this.createLine( 2 );
         this.createLine( 1 );
 
-        selection = null;
-        pieces = new Pieces();
-        moveCommand = new MoveAndEat( this, pieces );
+        this.game = game;
     }
 
     private void createLine(final int line) {
@@ -83,37 +80,29 @@ public class GameFrame extends JFrame {
         return null;
     }
 
-    private Piece selection;
     protected void clicked(final JButton source) {
-        if (selection == null) {
-            selection = pieces.getPieceWithPosition( source.getName() );
-        }
-        else {
-            moveCommand.move( selection.getPosition(), source.getName() );
-            selection = null;
-        }
+
+        game.select(source.getName());
+        renderGame();
     }
 
-    private final Pieces pieces;
-    public Pieces getPieces() {
-        return pieces;
+    private void renderGame()
+    {
+        for(final Piece piece : game.getPieces())
+            display(piece);
     }
 
     public void display(final Piece piece) {
         final PieceRenderer renderer = new RendererFactory().rendererOf( piece );
         renderer.visit( getButtonNamed( piece.getPosition() ) );
-        if (!pieces.contains( piece )) {
-            pieces.add( piece );
+        if (!game.getPieces().contains( piece )) {
+            game.getPieces().add( piece );
         }
     }
     public void display(final Piece... given) {
         for(final Piece piece:given) {
             display( piece );
         }
-    }
-
-    public void setMoveCommand(final MoveCommand moveCommand) {
-        this.moveCommand = moveCommand;
     }
 
     public void clearPosition(final String initialPosition) {

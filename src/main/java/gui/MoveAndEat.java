@@ -5,22 +5,17 @@ import chess.Pieces;
 
 public class MoveAndEat implements MoveCommand {
 
-    private GameFrame frame;
-    private Pieces pieces;
+    private final Pieces pieces;
 
-    public MoveAndEat(GameFrame frame, Pieces pieces) {
-        this.frame = frame;
+    public MoveAndEat(final Pieces pieces) {
         this.pieces = pieces;
     }
 
     @Override
-    public void move(String initialPosition, String targetPosition) {
-        Piece piece = pieces.getPieceWithPosition( initialPosition );
-        Piece eaten = pieces.getPieceWithPosition( targetPosition );
+    public void move(final String initialPosition, final String targetPosition) {
+        final Piece piece = pieces.getPieceWithPosition( initialPosition );
+        final Piece eaten = pieces.getPieceWithPosition( targetPosition );
         pieces.remove( eaten );
         piece.setPosition( targetPosition );
-
-        frame.clearPosition( initialPosition );
-        frame.display( piece );
     }
 }

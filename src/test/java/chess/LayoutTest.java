@@ -20,7 +20,7 @@ public class LayoutTest {
     @Before
     public void
     newFrame() {
-        frame = new GameFrame(null);
+        frame = new GameFrame(new Game());
     }
 
     @Test public void

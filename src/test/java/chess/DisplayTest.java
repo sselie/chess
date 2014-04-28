@@ -24,7 +24,7 @@ public class DisplayTest {
     @Before
     public void
     showGame() {
-        game = new GameFrame(null);
+        game = new GameFrame(new Game());
         game.setVisible( true );
         board = new GameDriver();
     }

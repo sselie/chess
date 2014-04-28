@@ -11,6 +11,7 @@ import imhotep.Imhotep;
 import org.junit.Before;
 import org.junit.Test;
 
+import chess.Game;
 import chess.Pieces;
 import chess.Queen;
 
@@ -18,21 +19,23 @@ import chess.Queen;
 public class MoveAndEatTest {
 
     GameFrame frame;
+    Game game;
     MoveAndEat moveCommand;
     Pieces pieces;
 
     @Before public void
     movingAQueenOnAPawn() {
-        frame = new GameFrame(null);
+        game = new Game();
+        frame = new GameFrame(game);
         frame.display( aQueen().black().on( "d5" ).build() );
         frame.display( aPawn().white().on( "e5" ).build() );
         frame.display( aPawn().white().on( "f5" ).build() );
-        pieces = frame.getPieces();
+        pieces = game.getPieces();
 
-        moveCommand = new MoveAndEat( frame, pieces );
-        frame.setMoveCommand( moveCommand );
-
-        moveCommand.move( "d5", "e5" );
+        game.select("d5");
+        game.select("e5");
+//        moveCommand = new MoveAndEat( pieces );
+//        moveCommand.move( "d5", "e5" );
     }
 
     @Test public void
@@ -42,12 +45,14 @@ public class MoveAndEatTest {
 
     @Test public void
     eatsThePawn() {
-        assertThat( frame.getPieces().size(), equalTo( 2 ) );
+        assertThat( game.getPieces().size(), equalTo( 2 ) );
     }
 
     @Test public void
     unlessThereIsNobodyOnTheTargetPosition() {
-        moveCommand.move( "e5", "e3" );
+        game.select("e5");
+        game.select("e3");
+//        moveCommand.move( "e5", "e3" );
 
         assertThat( pieces.getPieceWithPosition( "e3" ), instanceOf( Queen.class ) );
         assertThat( pieces.size(), equalTo( 2 ) );

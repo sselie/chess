@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import org.junit.Before;
 import org.junit.Test;
 
+import chess.Game;
 import chess.Pawn;
 import chess.Queen;
 
@@ -25,11 +26,13 @@ import chess.Queen;
 public class GameFrameTest {
 
     GameFrame frame;
+    Game game;
 
     @Before
     public void
     showGame() {
-        frame = new GameFrame(null);
+        game = new Game();
+        frame = new GameFrame(game);
     }
 
     @Test public void
@@ -71,14 +74,13 @@ public class GameFrameTest {
         final Queen queen = aQueen().white().on( "d1" ).build();
         final Pawn pawn = aPawn().white().on( "d2" ).build();
         frame.display( queen, pawn );
-        assertThat( (Queen) frame.getPieces().getPieceWithPosition( "d1" ), equalTo( queen ) );
-        assertThat( (Pawn) frame.getPieces().getPieceWithPosition( "d2" ), equalTo( pawn ) );
+        assertThat( (Queen) game.getPieces().getPieceWithPosition( "d1" ), equalTo( queen ) );
+        assertThat( (Pawn) game.getPieces().getPieceWithPosition( "d2" ), equalTo( pawn ) );
     }
 
     @Test public void
     delegatesMoveActionToMoveCommand() {
         final MoveCommand moveMoveCommand = mock( MoveCommand.class );
-        frame.setMoveCommand( moveMoveCommand );
         frame.display( aQueen().black().on( "d5" ).build() );
         frame.clicked( frame.getButtonNamed( "d5" ) );
         frame.clicked( frame.getButtonNamed( "e5" ) );

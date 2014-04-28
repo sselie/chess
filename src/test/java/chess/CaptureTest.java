@@ -16,25 +16,27 @@ import support.GameDriver;
 @Imhotep(level="UI")
 public class CaptureTest {
 
-    GameFrame game;
+    GameFrame frame;
+    Game game;
     GameDriver board;
 
     @Before
     public void
     showGame() {
-        game = new GameFrame(null);
-        game.setVisible( true );
+        game = new Game();
+        frame = new GameFrame(game);
+        frame.setVisible( true );
         board = new GameDriver();
     }
     @After
     public void
     hideFrame() {
-        game.setVisible( false );
+        frame.setVisible( false );
     }
 
     @Test public void
     canCapture() throws InterruptedException {
-        game.display( aQueen().white().on( "d1" ).build(),
+        frame.display( aQueen().white().on( "d1" ).build(),
                 aPawn().black().on( "d7" ).build() );
 
         board.cell( "d1" ).click();
